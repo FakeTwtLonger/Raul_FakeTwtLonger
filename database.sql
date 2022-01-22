@@ -12,3 +12,13 @@ CREATE TABLE IF NOT EXISTS `Users`(
     `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 );
+
+CREATE TABLE IF NOT EXISTS `Tweets` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `tweet_content` TEXT NOT NULL,
+    `user_id` INT NOT NULL,
+    `post_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `post_link` VARCHAR(6) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`user_id`) REFERENCES `Users`(`id`)
+);
